@@ -1,0 +1,27 @@
+@use '../mixins';
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	position: sticky;
+	top: 0;
+	padding: 8px;
+	font-size: 2.8rem;
+	background-color: rgb(49, 57, 60);
+	@include mixins.desktops {
+		justify-content: left;
+	}
+	a {
+		font-weight: 600;
+		text-decoration: none;
+		color: rgb(255, 255, 255);
+        transition: 0.2s;
+	}
+	a:hover {
+		color: rgb(253, 202, 64);
+	}
+	.active {
+		color: rgb(253, 202, 64);
+	}
+}

@@ -1,0 +1,163 @@
+@use '../mixins';
+.wrapper {
+	padding: 0 10px;
+	header {
+		text-align: center;
+		scroll-margin-top: 380px;
+		.headerTitle {
+			margin: 15px 0;
+			font-size: 2.8rem;
+		}
+	}
+	.formBox {
+		@include mixins.tablets {
+			display: flex;
+			justify-content: center;
+		}
+		@include mixins.laptops {
+			display: flex;
+			justify-content: center;
+		}
+		@include mixins.desktops {
+			display: flex;
+			justify-content: center;
+		}
+		form {
+			margin: 15px 0;
+			@include mixins.tablets {
+				width: 80%;
+			}
+			@include mixins.laptops {
+				width: 60%;
+			}
+			@include mixins.desktops {
+				width: 40%;
+			}
+			.inputControl {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				label {
+					font-size: 1.4rem;
+					margin-bottom: 5px;
+				}
+				input {
+					margin-bottom: 5px;
+					padding: 5px 10px;
+					background-color: transparent;
+					border: 2px solid rgb(33, 118, 255);
+					border-radius: 10px;
+					outline: none;
+					color: rgb(255, 255, 255);
+				}
+				input:focus {
+					box-shadow: 1px 1px 10px rgb(33, 118, 255);
+				}
+				input::placeholder {
+					color: rgb(211, 211, 211);
+				}
+			}
+			.btnBox {
+				margin-top: 10px;
+				.btn {
+					width: 100%;
+					padding: 5px 15px;
+					background-color: rgb(33, 118, 255);
+					border: none;
+					border-radius: 10px;
+					font-size: large;
+					color: rgb(211, 211, 211);
+                    transition: 0.3s;
+					@include mixins.laptops {
+						width: 40%;
+					}
+					@include mixins.desktops {
+						width: 30%;
+					}
+				}
+				.btn:hover {
+					background-color: rgb(51, 161, 253);
+					color: rgb(255, 255, 255);
+				}
+			}
+		}
+	}
+	.searchResult {
+		.searchResultTitle {
+			text-align: center;
+			margin-bottom: 15px;
+		}
+		.searchResultText {
+			text-align: center;
+		}
+		.booksLists {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			@include mixins.tablets {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+			@include mixins.laptops {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+			@include mixins.desktops {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+			.bookItem {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				margin-bottom: 15px;
+				padding: 10px;
+				width: 100%;
+				min-height: 300px;
+				font-size: 1.4rem;
+				background-color: rgb(49, 57, 60);
+				border-radius: 5px;
+				@include mixins.tablets {
+					justify-content: space-between;
+					width: 40%;
+					height: 320px;
+				}
+				@include mixins.laptops {
+					justify-content: space-between;
+					width: 30%;
+					height: 320px;
+				}
+				@include mixins.desktops {
+					justify-content: space-between;
+					width: 20%;
+					height: 320px;
+				}
+				.cover {
+					width: 30%;
+					@include mixins.landscapePhone {
+						width: 20%;
+					}
+				}
+				.btnSave {
+					width: 100%;
+					padding: 5px 15px;
+					background-color: rgb(33, 118, 255);
+					border: none;
+					border-radius: 10px;
+					font-size: large;
+					color: rgb(255, 255, 255);
+                    transition: 0.3s;
+				}
+				.btnSave:hover {
+					background-color: rgb(51, 161, 253);
+				}
+			}
+		}
+	}
+}

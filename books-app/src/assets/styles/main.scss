@@ -1,0 +1,21 @@
+@use './components/MainNavigation';
+@use './pages/home';
+@use './pages/read';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap');
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	font-family: 'Open Sans', sans-serif;
+}
+body {
+	background-image: url(../img/backfround-sm.png);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	font-size: 1.6rem;
+	color: #fff;
+}

@@ -1,0 +1,77 @@
+@use '../mixins';
+.readBox {
+	padding: 0 10px;
+	.readBoxTitle {
+		text-align: center;
+		margin: 15px 0;
+	}
+	.readBooksList {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		@include mixins.tablets {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		@include mixins.laptops {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		@include mixins.desktops {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		.readBooksItem {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			margin-bottom: 15px;
+			padding: 10px;
+			width: 100%;
+			min-height: 300px;
+			font-size: 1.4rem;
+			background-color: rgb(49, 57, 60);
+			border-radius: 5px;
+			@include mixins.tablets {
+				justify-content: space-between;
+				width: 40%;
+				height: 320px;
+			}
+			@include mixins.laptops {
+				justify-content: space-between;
+				width: 30%;
+				height: 320px;
+			}
+			@include mixins.desktops {
+				justify-content: space-between;
+				width: 20%;
+				height: 320px;
+			}
+			.readBookCover {
+				width: 30%;
+				@include mixins.landscapePhone {
+					width: 20%;
+				}
+			}
+			.btnDelete {
+				width: 100%;
+				padding: 5px 15px;
+				background-color: rgb(33, 118, 255);
+				border: none;
+				border-radius: 10px;
+				font-size: large;
+				color: rgb(255, 255, 255);
+                transition: 0.3s;
+			}
+			.btnDelete:hover {
+				background-color: rgb(255, 99, 71);
+			}
+		}
+	}
+}
