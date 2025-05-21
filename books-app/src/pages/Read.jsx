@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import bookCover from '../assets/img/bookCover.png'
 
 export default function Read() {
 	const [readBooks, setReadBooks] = useState([])
@@ -14,8 +15,9 @@ export default function Read() {
 		localStorage.setItem('savedBooks', JSON.stringify(updated))
 	}
 
-	return (
-        <div className='readBox'>
+    return (
+        <main>
+<div className='readBox'>
            
 			<h3 className='readBoxTitle'>Lista przeczytanych książek:</h3>
 			<ul className='readBooksList'>
@@ -25,12 +27,14 @@ export default function Read() {
 						<li className='readBooksItem' key={book.id}>
 							<h3>{info.title}</h3>
 							<p>Autorzy: {info.authors?.join(', ') || 'Brak autora'}</p>
-                            {info.imageLinks?.thumbnail && <img className='readBookCover' src={info.imageLinks.thumbnail} alt={info.title} />}
+                            {info.imageLinks?.thumbnail && <img className='readBookCover' src={info.imageLinks.thumbnail} alt={info.title} /> || <img className='emergencyReadBookCover' src={bookCover } alt='stos książek ułożonych na sobie ' />}
                             <button className='btnDelete' onClick={()=> removeBook(book.id)}>Usuń</button>
 						</li>
 					)
 				})}
 			</ul>
 		</div>
+        </main>
+        
 	)
 }

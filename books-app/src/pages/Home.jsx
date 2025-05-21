@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import bookCover from '../assets/img/bookCover.png'
 
 export default function Home() {
 	const [title, setTitle] = useState('')
@@ -17,7 +18,8 @@ export default function Home() {
 
 		try {
 			const response = await fetch(url)
-			const data = await response.json()
+            const data = await response.json()
+            
 
 			if (data.items && data.items.length > 0) {
 				setBooks(data.items)
@@ -46,7 +48,10 @@ export default function Home() {
 		}
 	}
 
-	return (
+    return (
+        <main>
+
+       
 		<div className='wrapper'>
 			<header>
 				<h1 className='headerTitle'>Twoja własna biblioteka książek!</h1>
@@ -94,7 +99,7 @@ export default function Home() {
                                 <li className='bookItem' key={book.id || index}>
                                     <h3>{info.title}</h3>
                                     <p>Autorzy: {info.authors?.join(', ') || 'Brak autora'}</p>
-									{info.imageLinks?.thumbnail && <img className='cover' src={info.imageLinks.thumbnail} alt={info.title} />}
+                                    {info.imageLinks?.thumbnail && <img className='cover' src={info.imageLinks.thumbnail} alt={info.title} /> || <img className='emergencyCover' src={bookCover } alt='stos książek ułożonych na sobie ' />}
 
 									<button className='btnSave' onClick={() => userBookToLocalStorage(book)}>Zapisz</button>
 								</li>
@@ -103,6 +108,7 @@ export default function Home() {
 					</ul>
 				)}
 			</div>
-		</div>
+            </div>
+             </main>
 	)
 }

@@ -1,6 +1,10 @@
 @use '../mixins';
 .readBox {
 	padding: 0 10px;
+     @include mixins.landscapePhone{
+        width: 75%;
+        padding: 0;
+    }
 	.readBoxTitle {
 		text-align: center;
 		margin: 15px 0;
@@ -29,45 +33,63 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: space-between;
 			gap: 10px;
 			margin-bottom: 15px;
 			padding: 10px;
 			width: 100%;
-			min-height: 300px;
+			min-height: 340px;
 			font-size: 1.4rem;
-			background-color: rgb(49, 57, 60);
+			border: 2px solid rgb(49, 57, 60);
+			border-radius: 3px;
+			box-shadow: 1px 1px 10px rgb(49, 57, 60);
+
 			border-radius: 5px;
+
+             @include mixins.landscapePhone{
+                  justify-content: center;
+                  min-height: 260px;
+                 
+                }
 			@include mixins.tablets {
-				justify-content: space-between;
+				
 				width: 40%;
 				height: 320px;
 			}
 			@include mixins.laptops {
-				justify-content: space-between;
+			
 				width: 30%;
 				height: 320px;
 			}
 			@include mixins.desktops {
-				justify-content: space-between;
+			
 				width: 20%;
 				height: 320px;
 			}
 			.readBookCover {
-				width: 30%;
+				width: 29%;
 				@include mixins.landscapePhone {
 					width: 20%;
 				}
+
 			}
+
+            .emergencyReadBookCover {
+					width: 50%;
+
+					@include mixins.landscapePhone {
+						width: 40%;
+					}
+				}
 			.btnDelete {
 				width: 100%;
 				padding: 5px 15px;
-				background-color: rgb(33, 118, 255);
+				background-color: rgb(0, 29, 61);
 				border: none;
 				border-radius: 10px;
 				font-size: large;
 				color: rgb(255, 255, 255);
-                transition: 0.3s;
+				transition: 0.3s;
 			}
 			.btnDelete:hover {
 				background-color: rgb(255, 99, 71);
